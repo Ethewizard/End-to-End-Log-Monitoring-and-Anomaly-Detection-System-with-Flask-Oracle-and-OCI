@@ -143,11 +143,3 @@ Feel free to open an issue or submit a pull request!
 
 ## 📄 **License**  
 This project is licensed under the [MIT License](LICENSE).  
-
----
-
-## ⭐ **If you find this useful, give it a star!** 🌟  
-
----
-
-Would you like to adjust any details or add more sections? 😎
