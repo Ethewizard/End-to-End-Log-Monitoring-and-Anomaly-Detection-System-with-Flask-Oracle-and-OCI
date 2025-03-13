@@ -38,7 +38,8 @@ This project is a full-stack log monitoring and anomaly detection system using F
 ### 1. **Clone the Repository**  
 ```bash
 git clone https://github.com/Ethewizard/End-to-End-Log-Monitoring-and-Anomaly-Detection-System-with-Flask-Oracle-and-OCI.git
-cd your-repo
+cd End-to-End-Log-Monitoring-and-Anomaly-Detection-System-with-Flask-Oracle-and-OCI
+
 ```
 
 ### 2. **Set Up the Environment**  
