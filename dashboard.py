@@ -9,9 +9,9 @@ try:
     if response.status_code == 200:
         data = response.json().get('data')  # Assuming the API response contains 'data'
     else:
-        data = None
+        data = ''
 except requests.exceptions.RequestException as e:
-    data = None
+    data = ''
     st.error(f"Error fetching logs: {str(e)}")
 
 # Check if data is None or empty before calling len()
