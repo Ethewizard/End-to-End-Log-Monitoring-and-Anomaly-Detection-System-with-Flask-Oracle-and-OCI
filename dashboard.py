@@ -1,16 +1,21 @@
-import streamlit as st
 import requests
+import streamlit as st
 
-API_URL = "http://127.0.0.1:5000/logs"
+API_URL = "http://127.0.0.1:5000/logs"  # Make sure this is correct
 
-st.title("📊 Log Monitoring Dashboard")
+# Fetch the logs from the Flask API
+try:
+    response = requests.get(API_URL)
+    if response.status_code == 200:
+        data = response.json().get('data')  # Assuming the API response contains 'data'
+    else:
+        data = None
+except requests.exceptions.RequestException as e:
+    data = None
+    st.error(f"Error fetching logs: {str(e)}")
 
-response = requests.get(API_URL)
-data = response.json().get('data', [])
-
-st.write(f"Total Logs: {len(data)}")
-
-for row in data:
-    log_id, message, created_at = row
-    color = "red" if "anomaly" in message else "green"
-    st.markdown(f"<span style='color:{color}'>{message} ({created_at})</span>", unsafe_allow_html=True)
+# Check if data is None or empty before calling len()
+if data is not None and len(data) > 0:
+    st.write(f"Total Logs: {len(data)}")
+else:
+    st.write("No logs available or unable to fetch logs.")
