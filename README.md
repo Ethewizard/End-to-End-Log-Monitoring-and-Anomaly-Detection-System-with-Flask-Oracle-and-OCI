@@ -61,8 +61,9 @@ kubectl version --client
 Clone your project from GitHub.
 
 ```bash
-git clone <your-github-repo-url>
-cd <your-repo-folder>
+git clone https://github.com/<your-username>/End-to-End-Log-Monitoring-and-Anomaly-Detection-System-with-Flask-Oracle-and-OCI.git
+cd End-to-End-Log-Monitoring-and-Anomaly-Detection-System-with-Flask-Oracle-and-OCI
+
 ```
 
 ---
