@@ -1,0 +1,7 @@
+streamlit
+flask
+cx_Oracle
+sklearn
+requests
+pandas
+faker
