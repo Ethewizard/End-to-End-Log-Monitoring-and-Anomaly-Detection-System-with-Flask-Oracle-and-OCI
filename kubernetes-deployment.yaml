@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-monitoring
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: log-monitoring
+  template:
+    metadata:
+      labels:
+        app: log-monitoring
+    spec:
+      containers:
+      - name: api
+        image: your-docker-repo/log-monitoring-api:latest
+        ports:
+        - containerPort: 5000
+      - name: streamlit
+        image: your-docker-repo/log-monitoring-ui:latest
+        ports:
+        - containerPort: 8501
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: log-monitoring-service
+spec:
+  selector:
+    app: log-monitoring
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+  type: LoadBalancer
