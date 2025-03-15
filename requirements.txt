@@ -1,7 +1,7 @@
 streamlit
 flask
 cx_Oracle
-sklearn
+scikit-learn
 requests
 pandas
 faker
