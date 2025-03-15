@@ -1,6 +1,0 @@
-flask
-cx_Oracle
-scikit-learn
-streamlit
-numpy
-requests
