@@ -10,15 +10,23 @@ app = Flask(__name__)
 LOG_LEVELS = ["INFO", "WARNING", "ERROR", "DEBUG", "CRITICAL"]
 
 # Oracle DB Connection using environment variables
-try:
-    conn = cx_Oracle.connect(
-        os.getenv("DB_USER") + "/" + os.getenv("DB_PASSWORD") +
-        "@" + os.getenv("DB_HOST") + ":" + os.getenv("DB_PORT") + "/" + os.getenv("DB_SERVICE")
-    )
-    cursor = conn.cursor()
-except cx_Oracle.DatabaseError as e:
-    print(f"Database connection error: {e}")
+db_user = os.getenv("DB_USER")
+db_password = os.getenv("DB_PASSWORD")
+db_host = os.getenv("DB_HOST")
+db_port = os.getenv("DB_PORT")
+db_service = os.getenv("DB_SERVICE")
+
+if None in (db_user, db_password, db_host, db_port, db_service):
+    print("Error: One or more required environment variables are missing.")
     conn, cursor = None, None
+else:
+    try:
+        dsn = f"{db_host}:{db_port}/{db_service}"
+        conn = cx_Oracle.connect(user=db_user, password=db_password, dsn=dsn)
+        cursor = conn.cursor()
+    except cx_Oracle.DatabaseError as e:
+        print(f"Database connection error: {e}")
+        conn, cursor = None, None
 
 @app.route("/logs", methods=["POST"])
 def ingest_log():
