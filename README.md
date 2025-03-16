@@ -15,15 +15,13 @@ This project is a full-stack log monitoring and anomaly detection system using F
 ---
 
 ## 📂 **Project Structure**  
-```plaintext
-├── app.py               # Flask API for log ingestion and retrieval  
-├── db_setup.py          # Database connection and setup  
-├── anomaly_detection.py # Isolation Forest-based anomaly detection  
-├── dashboard.py         # Streamlit dashboard  
-├── Dockerfile           # Docker setup for deployment  
-├── requirements.txt     # Python dependencies  
-└── README.md            # Project documentation  
-```
+├── api.py                   # Handles log ingestion and processing
+├── app.py                   # Flask application setup
+├── Dockerfile               # Docker configuration
+├── kubernetes-deployment.yaml # Kubernetes deployment setup
+├── requirements.txt         # Python dependencies
+└── README.md                # Project documentation
+
 
 ---
 
