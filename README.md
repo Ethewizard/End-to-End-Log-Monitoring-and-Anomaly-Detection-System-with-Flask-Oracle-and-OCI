@@ -1,5 +1,8 @@
-# 🚀 **End-to-End Log Monitoring and Anomaly Detection System with Flask, Oracle, and OCI**  
- 
+Here’s the **combined and formatted README** with the updated project structure:
+
+---
+
+# 🚀 End-to-End Log Monitoring and Anomaly Detection System with Flask, Oracle, and OCI  
 
 ## 📝 **Project Overview**  
 This project is a full-stack log monitoring and anomaly detection system using Flask, Oracle Autonomous Database, and OCI. It includes:  
@@ -11,6 +14,8 @@ This project is a full-stack log monitoring and anomaly detection system using F
 
 ---
 
+## 📂 **Project Structure**  
+```plaintext
 ├── app.py               # Flask API for log ingestion and retrieval  
 ├── db_setup.py          # Database connection and setup  
 ├── anomaly_detection.py # Isolation Forest-based anomaly detection  
@@ -18,7 +23,7 @@ This project is a full-stack log monitoring and anomaly detection system using F
 ├── Dockerfile           # Docker setup for deployment  
 ├── requirements.txt     # Python dependencies  
 └── README.md            # Project documentation  
-
+```
 
 ---
 
@@ -31,121 +36,131 @@ This project is a full-stack log monitoring and anomaly detection system using F
 ✅ Scalable on Kubernetes and OCI  
 
 ---
-🚀 Step-by-Step Setup Guide
-1. Install Dependencies
-Install required packages on Ubuntu:
 
-bash
-Copy
-Edit
-sudo apt update && sudo apt upgrade -y
+## 🚀 **Step-by-Step Setup Guide**
+
+### **1. Install Dependencies**  
+Install required packages on Ubuntu:  
+```bash
+sudo apt update && sudo apt upgrade -y  
 sudo apt install -y python3 python3-pip git docker.io docker-compose kubectl
-2. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/Ethewizard/End-to-End-Log-Monitoring-and-Anomaly-Detection-System-with-Flask-Oracle-and-OCI.git
+```
+
+---
+
+### **2. Clone the Repository**  
+```bash
+git clone https://github.com/Ethewizard/End-to-End-Log-Monitoring-and-Anomaly-Detection-System-with-Flask-Oracle-and-OCI.git  
 cd End-to-End-Log-Monitoring-and-Anomaly-Detection-System-with-Flask-Oracle-and-OCI
-3. Set Up Virtual Environment
-Create and activate a virtual environment:
+```
 
-bash
-Copy
-Edit
-python3 -m venv venv
+---
+
+### **3. Set Up Virtual Environment**  
+Create and activate a virtual environment:  
+```bash
+python3 -m venv venv  
 source venv/bin/activate
-4. Install Python Dependencies
-bash
-Copy
-Edit
-pip install --upgrade pip
+```
+
+---
+
+### **4. Install Python Dependencies**  
+```bash
+pip install --upgrade pip  
 pip install -r requirements.txt
-5. Configure Oracle Database
-Download Oracle Instant Client from Oracle.
-Unzip to /opt/oracle/instantclient.
-Set environment variables:
-bash
-Copy
-Edit
-export LD_LIBRARY_PATH=/opt/oracle/instantclient:$LD_LIBRARY_PATH
-export PATH=/opt/oracle/instantclient:$PATH
+```
+
+---
+
+### **5. Configure Oracle Database**  
+1. Download Oracle Instant Client from [Oracle](https://www.oracle.com/database/technologies/instant-client.html).  
+2. Unzip to `/opt/oracle/instantclient`.  
+3. Set environment variables:  
+```bash
+export LD_LIBRARY_PATH=/opt/oracle/instantclient:$LD_LIBRARY_PATH  
+export PATH=/opt/oracle/instantclient:$PATH  
 export ORACLE_HOME=/opt/oracle/instantclient
-6. Set Up Docker
-Add Docker permissions:
+```
 
-bash
-Copy
-Edit
-sudo usermod -aG docker $USER
+---
+
+### **6. Set Up Docker**  
+Add Docker permissions:  
+```bash
+sudo usermod -aG docker $USER  
 newgrp docker
-Build and start Docker containers:
+```
 
-bash
-Copy
-Edit
+Build and start Docker containers:  
+```bash
 docker-compose up --build -d
-Verify running containers:
+```
 
-bash
-Copy
-Edit
+Verify running containers:  
+```bash
 docker ps
-7. Deploy Kubernetes
-Create a namespace:
+```
 
-bash
-Copy
-Edit
+---
+
+### **7. Deploy Kubernetes**  
+Create a namespace:  
+```bash
 kubectl create namespace log-monitoring
-Deploy Kubernetes objects:
+```
 
-bash
-Copy
-Edit
+Deploy Kubernetes objects:  
+```bash
 kubectl apply -f k8s-deployment.yaml -n log-monitoring
-Check status:
+```
 
-bash
-Copy
-Edit
+Check status:  
+```bash
 kubectl get pods -n log-monitoring
-8. Start Flask API
-bash
-Copy
-Edit
+```
+
+---
+
+### **8. Start Flask API**  
+```bash
 python app.py
-9. Start Streamlit Dashboard
-bash
-Copy
-Edit
+```
+
+---
+
+### **9. Start Streamlit Dashboard**  
+```bash
 streamlit run dashboard.py
-10. Test Logs and Anomaly Detection
-Send a test log:
+```
 
-bash
-Copy
-Edit
+---
+
+### **10. Test Logs and Anomaly Detection**  
+Send a test log:  
+```bash
 curl -X POST http://localhost:5000/logs -d '{"message": "Test log"}' -H "Content-Type: application/json"
-11. Stop Services
-Stop Flask:
+```
 
-bash
-Copy
-Edit
+---
+
+### **11. Stop Services**  
+Stop Flask:  
+```bash
 pkill -f app.py
-Stop Docker:
+```
 
-bash
-Copy
-Edit
+Stop Docker:  
+```bash
 docker-compose down
-Delete Kubernetes objects:
+```
 
-bash
-Copy
-Edit
+Delete Kubernetes objects:  
+```bash
 kubectl delete -f k8s-deployment.yaml -n log-monitoring
+```
 
+---
 
 ## 🏆 **Technologies Used**  
 - **Python** – Core programming language  
@@ -160,9 +175,9 @@ kubectl delete -f k8s-deployment.yaml -n log-monitoring
 ---
 
 ## 🚨 **Potential Improvements**  
-- Add authentication for API security  
-- Extend ML model with more complex features  
-- Implement real-time alerting for anomalies  
+✅ Add authentication for API security  
+✅ Extend ML model with more complex features  
+✅ Implement real-time alerting for anomalies  
 
 ---
 
@@ -172,4 +187,8 @@ Feel free to open an issue or submit a pull request!
 ---
 
 ## 📄 **License**  
-This project is licensed under the [MIT License](LICENSE).  
+This project is licensed under the MIT License.  
+
+---
+
+This version is more polished and GitHub-ready! Let me know if you want to adjust anything. 😎
