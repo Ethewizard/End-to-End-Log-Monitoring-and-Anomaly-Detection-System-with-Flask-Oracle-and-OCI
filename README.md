@@ -1,7 +1,3 @@
-Here’s the **combined and formatted README** with the updated project structure:
-
----
-
 # 🚀 End-to-End Log Monitoring and Anomaly Detection System with Flask, Oracle, and OCI  
 
 ## 📝 **Project Overview**  
